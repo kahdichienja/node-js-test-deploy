@@ -48,11 +48,12 @@ Run the master deployment script. It will automatically:
 ```
 
 ### 4. Test the API
-The deployment script will wait for readiness and output your Minikube IP.
+The deployment script automatically binds the service to **localhost:3000** via port-forwarding at the end. 
+Keep the terminal open, and test the endpoints directly from your local machine:
 ```bash
 # Example curl requests
-curl http://<YOUR_MINIKUBE_IP>/
-curl http://<YOUR_MINIKUBE_IP>/health
+curl http://localhost:3000/
+curl http://localhost:3000/health
 ```
 
 ## Continuous Integration (GitHub Actions)

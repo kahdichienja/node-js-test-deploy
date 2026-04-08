@@ -19,5 +19,8 @@ spec:
       - name: node-api
         image: kahdicheinja/node-js-test-deploy:latest
         imagePullPolicy: Always
+        env:
+        - name: REDIS_URL
+          value: "redis://redis-service:6379"
         ports:
         - containerPort: 3000

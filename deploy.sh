@@ -9,6 +9,7 @@ echo "Building and Pushing the latest image to Docker Hub..."
 
 echo "Applying Kubernetes manifests..."
 kubectl apply -f k8s/namespace.yaml
+kubectl apply -f k8s/redis.yaml
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 kubectl apply -f k8s/ingress.yaml

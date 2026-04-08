@@ -20,7 +20,7 @@ app.get('/health', (req, res) => {
 });
 
 // Mock user endpoint with caching
-app.get('/users/:id', async (req, res) => {
+app.get('/user/:id', async (req, res) => {
   const userId = req.params.id;
   
   try {
@@ -30,7 +30,11 @@ app.get('/users/:id', async (req, res) => {
     }
     
     // Mock user database fetch
-    const user = { id: userId, name: `User ${userId}`, email: `user${userId}@example.com` };
+    const user = { 
+      id: userId, 
+      name: `User ${userId}`, 
+      email: `user${userId}@example.com` 
+    };
     
     // Store in cache for 60 seconds
     await redisClient.setEx(`user:${userId}`, 60, JSON.stringify(user));
